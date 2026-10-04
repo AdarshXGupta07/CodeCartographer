@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.models/
+.cartographer/
+.cartographer-test/
+.pytest_cache/
+eval/scale_run.log
+.env

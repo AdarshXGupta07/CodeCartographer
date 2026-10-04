@@ -1,0 +1,10 @@
+{
+  "name": "nova-assistant",
+  "version": "0.4.2",
+  "description": "Nova - a modular on-device voice assistant built from agents and tools (sample codebase for CodeCartographer)",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "license": "MIT"
+}

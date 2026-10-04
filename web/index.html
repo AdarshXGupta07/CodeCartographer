@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CodeCartographer</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%2322d3ee'/%3E%3Cpath d='M16 6l4 10-4 10-4-10z' fill='%230b1020'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg viewBox="0 0 32 32" class="logo" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 5l4.5 11L16 27l-4.5-11z" fill="currentColor"/><circle cx="16" cy="16" r="2" fill="var(--bg)"/></svg>
+      <div>
+        <div class="brand-name">CodeCartographer</div>
+        <div class="brand-sub">Agentic code intelligence for large JavaScript codebases</div>
+      </div>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-view="ask">Ask</button>
+      <button class="tab" data-view="eval">Evaluation</button>
+      <button class="tab" data-view="findings">Optimisations</button>
+      <button class="tab" data-view="explore">Explorer</button>
+    </nav>
+    <div class="status">
+      <span class="pill" id="repoPill">loading…</span>
+      <span class="pill" id="llmPill">LLM</span>
+      <button class="btn ghost" id="indexBtn" title="Index another repository">Index repo</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================================================================ ASK -->
+    <section class="view active" id="view-ask">
+      <form class="askbar" id="askForm">
+        <svg viewBox="0 0 24 24" class="askicon" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="q" autocomplete="off" placeholder="Ask anything about the codebase… e.g. which files call tool checkPermission before openDeeplink?" />
+        <label class="toggle" id="llmToggleWrap" title="Let the LLM refine the answer (needs an API key)">
+          <input type="checkbox" id="llmToggle" /> <span>LLM</span>
+        </label>
+        <button class="btn primary" type="submit" id="askBtn">Ask</button>
+      </form>
+      <div class="chips" id="chips"></div>
+
+      <div class="ask-grid">
+        <aside class="panel trace-panel">
+          <div class="panel-head"><span>Agent trace</span><span class="muted" id="traceMeta"></span></div>
+          <ol class="trace" id="trace"><li class="empty">Plan → search → read → refine → verify.<br/>Each step appears here live.</li></ol>
+        </aside>
+        <div class="results-col">
+          <div class="panel answer" id="answerPanel" hidden>
+            <div class="answer-top">
+              <span class="qtype" id="qtype"></span>
+              <span class="muted" id="answerMeta"></span>
+            </div>
+            <div class="answer-text" id="answerText"></div>
+          </div>
+          <div class="panel" id="graphPanel" hidden>
+            <div class="panel-head"><span>Call graph around the answer</span><span class="muted legend"><i class="dot method"></i>method <i class="dot function"></i>function <i class="dot tool"></i>tool handler <i class="dot focus"></i>in answer</span></div>
+            <div id="graph"></div>
+          </div>
+          <div id="locations"></div>
+          <div class="panel" id="optPanel" hidden>
+            <div class="panel-head"><span>Optimisation suggestions on these code paths</span></div>
+            <div id="opts"></div>
+          </div>
+          <div class="hero" id="hero">
+            <h1>Find the right code in a repo far larger than any context window.</h1>
+            <p>CodeCartographer indexes JavaScript with a tree-sitter AST, a branch-aware call graph and CPU code embeddings.
+               An agent plans, searches, reads and refines, and <b>every file:line it cites is verified against the source</b>.</p>
+            <div class="hero-grid">
+              <div><b>Semantic</b><span>plain-English → snippets with exact lines</span></div>
+              <div><b>Usage</b><span>constants & deeplinks traced through alias tables</span></div>
+              <div><b>Structural</b><span>“tool A before tool B”, inter-procedural, branch-aware</span></div>
+              <div><b>Optimise</b><span>AST detectors on the code paths you surface</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================== EVAL -->
+    <section class="view" id="view-eval">
+      <div class="kpis" id="kpis"></div>
+      <div class="eval-grid">
+        <div class="panel"><div class="panel-head"><span>Retrieval quality: baselines vs agent</span><span class="muted">41 labelled queries</span></div><div id="bars"></div></div>
+        <div class="panel"><div class="panel-head"><span>Recall@5 by query type</span></div><div id="typeTable"></div></div>
+        <div class="panel"><div class="panel-head"><span>Full metrics</span></div><div id="metricsTable"></div></div>
+        <div class="panel"><div class="panel-head"><span>Indexing cost & scale</span></div><div id="costTable"></div></div>
+      </div>
+      <div class="panel"><div class="panel-head"><span>Per-query results (Recall@5)</span></div><div id="perQuery"></div></div>
+    </section>
+
+    <!-- =========================================================== FINDINGS -->
+    <section class="view" id="view-findings">
+      <div class="panel-head big"><span>Static optimisation findings</span><span class="muted" id="findMeta"></span></div>
+      <div id="findings"></div>
+    </section>
+
+    <!-- ============================================================ EXPLORE -->
+    <section class="view" id="view-explore">
+      <div class="explore-grid">
+        <aside class="panel tree-panel"><div class="panel-head"><span>Files & symbols</span></div><input id="treeFilter" class="filter" placeholder="filter…" /><div id="tree"></div></aside>
+        <div>
+          <div class="panel" id="exGraphPanel"><div class="panel-head"><span id="exTitle">Select a symbol</span></div><div id="exGraph"></div></div>
+          <div id="exCode"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="indexDlg">
+    <form method="dialog" id="indexForm">
+      <h3>Index a JavaScript repository</h3>
+      <p class="muted">Absolute path on the server machine. Re-indexing is incremental: only changed files are parsed and embedded.</p>
+      <input id="indexPath" placeholder="D:\code\voice-assistant" />
+      <div class="progress" id="indexProgress"></div>
+      <div class="dlg-actions"><button class="btn ghost" value="cancel">Close</button><button class="btn primary" id="indexGo" value="default">Index</button></div>
+    </form>
+  </dialog>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.30.2/cytoscape.min.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

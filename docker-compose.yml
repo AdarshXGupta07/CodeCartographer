@@ -1,0 +1,19 @@
+services:
+  codecartographer:
+    build: .
+    image: codecartographer:latest
+    ports:
+      - "8000:8000"
+    environment:
+      # Optional LLM (any one). Without a key the deterministic planner is used.
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - GROQ_API_KEY=${GROQ_API_KEY:-}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      # Point at a mounted repo to index your own code base:
+      - CARTO_REPO=${CARTO_REPO:-/app/sample_repo/nova-assistant}
+    volumes:
+      - ${REPO_PATH:-./sample_repo/nova-assistant}:/repo:ro
+      - carto-index:/data/index
+
+volumes:
+  carto-index:

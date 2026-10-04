@@ -1,0 +1,433 @@
+{
+  "repo": "sample_repo/nova-assistant",
+  "note": "Hand-labelled relevance. Targets are 'file::FunctionName' (any chunk of that function counts) or 'file:L<line>' (a span containing that line).",
+  "queries": [
+    {
+      "id": "sem-01",
+      "type": "semantic",
+      "query": "retry a failed request with exponential backoff",
+      "relevant": [
+        "src/utils/retry.js::withRetry"
+      ]
+    },
+    {
+      "id": "sem-02",
+      "type": "semantic",
+      "query": "how are conversation sessions saved to disk",
+      "relevant": [
+        "src/core/sessionStore.js::SessionStore.save"
+      ]
+    },
+    {
+      "id": "sem-03",
+      "type": "semantic",
+      "query": "where is the user's intent classified from the utterance",
+      "relevant": [
+        "src/nlu/intentClassifier.js::IntentClassifier.classify"
+      ]
+    },
+    {
+      "id": "sem-04",
+      "type": "semantic",
+      "query": "which code routes an intent to the right agent",
+      "relevant": [
+        "src/core/agentRouter.js::AgentRouter.route",
+        "src/core/agentRouter.js::AgentRouter.createAgent"
+      ]
+    },
+    {
+      "id": "sem-05",
+      "type": "semantic",
+      "query": "pair and connect bluetooth earbuds",
+      "relevant": [
+        "src/agents/bluetoothAgent.js::BluetoothAgent.run"
+      ]
+    },
+    {
+      "id": "sem-06",
+      "type": "semantic",
+      "query": "convert text to speech output",
+      "relevant": [
+        "src/services/ttsService.js::TtsService.speak"
+      ]
+    },
+    {
+      "id": "sem-07",
+      "type": "semantic",
+      "query": "start listening to the microphone for speech recognition",
+      "relevant": [
+        "src/services/asrService.js::AsrService.startListening"
+      ]
+    },
+    {
+      "id": "sem-08",
+      "type": "semantic",
+      "query": "ask the user a follow up question when a required slot is missing",
+      "relevant": [
+        "src/core/dialogManager.js::DialogManager.buildClarification",
+        "src/core/dialogManager.js::DialogManager.needsClarification"
+      ]
+    },
+    {
+      "id": "sem-09",
+      "type": "semantic",
+      "query": "extract time and numbers from the user utterance",
+      "relevant": [
+        "src/nlu/entityExtractor.js::extractEntities",
+        "src/nlu/entityExtractor.js::parseTime"
+      ]
+    },
+    {
+      "id": "sem-10",
+      "type": "semantic",
+      "query": "fetch the weather forecast for the current location",
+      "relevant": [
+        "src/agents/weatherAgent.js::WeatherAgent.run",
+        "src/tools/networkTools.js::tool:fetchWeather"
+      ]
+    },
+    {
+      "id": "sem-11",
+      "type": "semantic",
+      "query": "cache entries with a time to live expiry",
+      "relevant": [
+        "src/utils/cache.js::TtlCache.get",
+        "src/utils/cache.js::TtlCache.set"
+      ]
+    },
+    {
+      "id": "sem-12",
+      "type": "semantic",
+      "query": "load third party skill manifests from a folder",
+      "relevant": [
+        "src/skills/skillLoader.js::loadSkills"
+      ]
+    },
+    {
+      "id": "sem-13",
+      "type": "semantic",
+      "query": "launch an android intent through the native bridge",
+      "relevant": [
+        "src/deeplinks/deeplinkLauncher.js::launchDeeplink"
+      ]
+    },
+    {
+      "id": "sem-14",
+      "type": "semantic",
+      "query": "resolve a settings alias to a deeplink uri",
+      "relevant": [
+        "src/deeplinks/deeplinkResolver.js::resolveDeeplink"
+      ]
+    },
+    {
+      "id": "sem-15",
+      "type": "semantic",
+      "query": "turn a vague device complaint into a troubleshooting tip",
+      "relevant": [
+        "src/agents/troubleshootAgent.js::TroubleshootAgent.run"
+      ]
+    },
+    {
+      "id": "sem-16",
+      "type": "semantic",
+      "query": "set the media volume level",
+      "relevant": [
+        "src/tools/deviceTools.js::tool:setVolume"
+      ]
+    },
+    {
+      "id": "sem-17",
+      "type": "semantic",
+      "query": "look up a contact by name in the address book",
+      "relevant": [
+        "src/tools/contactTools.js::tool:lookupContact"
+      ]
+    },
+    {
+      "id": "sem-18",
+      "type": "semantic",
+      "query": "discover smart home devices in every room",
+      "relevant": [
+        "src/agents/smartHomeAgent.js::SmartHomeAgent.discoverDevices"
+      ]
+    },
+    {
+      "id": "sem-19",
+      "type": "semantic",
+      "query": "write analytics events to a log file",
+      "relevant": [
+        "src/services/analytics.js::trackEvent"
+      ]
+    },
+    {
+      "id": "sem-20",
+      "type": "semantic",
+      "query": "boot the assistant and register all tools",
+      "relevant": [
+        "src/index.js::bootstrap"
+      ]
+    },
+    {
+      "id": "sem-21",
+      "type": "semantic",
+      "query": "check whether a runtime permission is granted",
+      "relevant": [
+        "src/services/permissionService.js::isGranted",
+        "src/tools/deviceTools.js::tool:checkPermission"
+      ]
+    },
+    {
+      "id": "sem-22",
+      "type": "semantic",
+      "query": "reuse the contact from the previous turn when the user says call him",
+      "relevant": [
+        "src/nlu/slotFiller.js::fillSlots"
+      ]
+    },
+    {
+      "id": "sem-23",
+      "type": "semantic",
+      "query": "publish an event to all subscribers",
+      "relevant": [
+        "src/core/eventBus.js::publish"
+      ]
+    },
+    {
+      "id": "sem-24",
+      "type": "semantic",
+      "query": "create a reminder at a given time",
+      "relevant": [
+        "src/tools/calendarTools.js::tool:createReminder",
+        "src/agents/reminderAgent.js::ReminderAgent.run"
+      ]
+    },
+    {
+      "id": "sem-25",
+      "type": "semantic",
+      "query": "handle a single user utterance end to end",
+      "relevant": [
+        "src/core/assistant.js::Assistant.handleUtterance"
+      ]
+    },
+    {
+      "id": "use-01",
+      "type": "usage",
+      "query": "Where is the Bluetooth-settings deeplink used?",
+      "relevant": [
+        "src/deeplinks/deeplinkConstants.js:L8",
+        "src/agents/bluetoothAgent.js::BluetoothAgent.run",
+        "src/agents/settingsAgent.js::SettingsAgent.openBluetoothSettings",
+        "src/agents/troubleshootAgent.js::TroubleshootAgent.run",
+        "src/agents/settingsAgent.js::SettingsAgent.detectPage",
+        "src/deeplinks/deeplinkResolver.js::resolveDeeplink"
+      ]
+    },
+    {
+      "id": "use-02",
+      "type": "usage",
+      "query": "Where is the battery settings deeplink used?",
+      "relevant": [
+        "src/deeplinks/deeplinkConstants.js:L11",
+        "src/agents/troubleshootAgent.js::TroubleshootAgent.run",
+        "src/agents/settingsAgent.js::SettingsAgent.detectPage",
+        "src/deeplinks/deeplinkResolver.js::resolveDeeplink"
+      ]
+    },
+    {
+      "id": "use-03",
+      "type": "usage",
+      "query": "where is the accessibility settings deeplink used",
+      "relevant": [
+        "src/deeplinks/deeplinkConstants.js:L13",
+        "src/agents/accessibilityAgent.js::AccessibilityAgent.run",
+        "src/agents/settingsAgent.js::SettingsAgent.detectPage",
+        "src/deeplinks/deeplinkResolver.js::resolveDeeplink"
+      ]
+    },
+    {
+      "id": "use-04",
+      "type": "usage",
+      "query": "where is the DIALER deeplink used",
+      "relevant": [
+        "src/deeplinks/deeplinkConstants.js:L17",
+        "src/agents/callAgent.js::CallAgent.run"
+      ]
+    },
+    {
+      "id": "use-05",
+      "type": "usage",
+      "query": "where is the weatherCache used",
+      "relevant": [
+        "src/tools/networkTools.js:L7",
+        "src/tools/networkTools.js::tool:fetchWeather"
+      ]
+    },
+    {
+      "id": "cal-01",
+      "type": "callers",
+      "query": "who calls getUserLocation",
+      "relevant": [
+        "src/agents/navigationAgent.js::NavigationAgent.run",
+        "src/agents/weatherAgent.js::WeatherAgent.run"
+      ]
+    },
+    {
+      "id": "cal-02",
+      "type": "callers",
+      "query": "who calls withRetry",
+      "relevant": [
+        "src/tools/networkTools.js::tool:fetchWeather",
+        "src/tools/networkTools.js::tool:httpFetch"
+      ]
+    },
+    {
+      "id": "cal-03",
+      "type": "callers",
+      "query": "callers of launchDeeplink",
+      "relevant": [
+        "src/tools/deviceTools.js::tool:openDeeplink"
+      ]
+    },
+    {
+      "id": "cal-04",
+      "type": "callers",
+      "query": "who invokes lookupContact",
+      "relevant": [
+        "src/agents/callAgent.js::CallAgent.run"
+      ]
+    },
+    {
+      "id": "cal-05",
+      "type": "callers",
+      "query": "who calls httpGet",
+      "relevant": [
+        "src/tools/mediaTools.js::tool:searchMedia",
+        "src/tools/networkTools.js::tool:fetchWeather",
+        "src/tools/networkTools.js::tool:httpFetch",
+        "src/agents/smartHomeAgent.js::SmartHomeAgent.discoverDevices"
+      ]
+    },
+    {
+      "id": "str-01",
+      "type": "structural",
+      "query": "Which files call tool checkPermission before tool openDeeplink?",
+      "relevant": [
+        "src/agents/bluetoothAgent.js::BluetoothAgent.run",
+        "src/agents/callAgent.js::CallAgent.run",
+        "src/agents/settingsAgent.js::SettingsAgent.run",
+        "src/agents/troubleshootAgent.js::TroubleshootAgent.run"
+      ]
+    },
+    {
+      "id": "str-02",
+      "type": "structural",
+      "query": "Which files call searchMedia before playMusic?",
+      "relevant": [
+        "src/agents/mediaAgent.js::MediaAgent.run"
+      ]
+    },
+    {
+      "id": "str-03",
+      "type": "structural",
+      "query": "which files call getUserLocation before fetchWeather",
+      "relevant": [
+        "src/agents/weatherAgent.js::WeatherAgent.run"
+      ]
+    },
+    {
+      "id": "str-04",
+      "type": "structural",
+      "query": "which agents call openDeeplink without checkPermission first",
+      "relevant": [
+        "src/agents/accessibilityAgent.js::AccessibilityAgent.run",
+        "src/agents/navigationAgent.js::NavigationAgent.run",
+        "src/agents/settingsAgent.js::SettingsAgent.launch",
+        "src/agents/settingsAgent.js::SettingsAgent.openBluetoothSettings"
+      ]
+    },
+    {
+      "id": "str-05",
+      "type": "structural",
+      "query": "which files call toggleBluetooth before scanBluetoothDevices",
+      "relevant": [
+        "src/agents/bluetoothAgent.js::BluetoothAgent.run"
+      ]
+    },
+    {
+      "id": "str-06",
+      "type": "structural",
+      "query": "which files call openDeeplink before checkPermission",
+      "relevant": [
+        "src/agents/accessibilityAgent.js::AccessibilityAgent.run"
+      ]
+    },
+    {
+      "id": "str-07",
+      "type": "structural",
+      "query": "which files call placeCall before openDeeplink",
+      "relevant": []
+    }
+  ],
+  "expected_findings": [
+    {
+      "file": "src/agents/bluetoothAgent.js",
+      "line": 28,
+      "rule": "sort-for-max"
+    },
+    {
+      "file": "src/agents/mediaAgent.js",
+      "line": 27,
+      "rule": "await-in-loop"
+    },
+    {
+      "file": "src/agents/smartHomeAgent.js",
+      "line": 25,
+      "rule": "await-in-loop"
+    },
+    {
+      "file": "src/core/sessionStore.js",
+      "line": 33,
+      "rule": "json-deep-clone"
+    },
+    {
+      "file": "src/core/sessionStore.js",
+      "line": 35,
+      "rule": "sync-io"
+    },
+    {
+      "file": "src/nlu/intentClassifier.js",
+      "line": 35,
+      "rule": "regex-in-loop"
+    },
+    {
+      "file": "src/services/analytics.js",
+      "line": 16,
+      "rule": "sync-io"
+    },
+    {
+      "file": "src/services/asrService.js",
+      "line": 18,
+      "rule": "tight-polling"
+    },
+    {
+      "file": "src/skills/skillLoader.js",
+      "line": 19,
+      "rule": "sync-io"
+    },
+    {
+      "file": "src/tools/contactTools.js",
+      "line": 13,
+      "rule": "invariant-in-loop"
+    },
+    {
+      "file": "src/skills/skillLoader.js",
+      "line": 11,
+      "rule": "sync-io"
+    },
+    {
+      "file": "src/skills/skillLoader.js",
+      "line": 16,
+      "rule": "sync-io"
+    }
+  ]
+}

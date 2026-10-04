@@ -1,0 +1,9 @@
+.venv
+.models
+.cartographer
+.cartographer-test
+.git
+__pycache__
+*.pyc
+docs/*.pptx
+docs/*.mp4
