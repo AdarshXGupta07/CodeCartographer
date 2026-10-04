@@ -2,6 +2,8 @@
 
 **Agentic code intelligence for JavaScript codebases far larger than any LLM context window.**
 
+> 🎥 **Demo video:** [Google Drive](https://drive.google.com/drive/folders/1Gvwn2Wrf3XEi7H5L5f0J6TPs4OePb_Ri?usp=sharing)
+>
 > Samsung PRISM GenAI Hackathon 2026 · **Theme 01 – Agentic Code Intelligence** · Team **SRM_SpaceX** (SRM Institute of Science and Technology): Adarsh Gupta, Aryan Sandilya, Ujjwal Pratap Singh
 
 Ask a plain-English question → get the exact code snippets with **file and line numbers**, verified against the source.
@@ -203,6 +205,6 @@ Final judged commit is tagged **`PRISM_GENAI_HACKATHON_Y2026`**.
 - Evaluation report: [`eval/RESULTS.md`](eval/RESULTS.md)
 - AI disclosure: [`AI_DISCLOSURE.md`](AI_DISCLOSURE.md)
 
-**Demo video:** _add YouTube / Drive link here_
+**Demo video:** [Google Drive](https://drive.google.com/drive/folders/1Gvwn2Wrf3XEi7H5L5f0J6TPs4OePb_Ri?usp=sharing)
 
 License: MIT
