@@ -2,7 +2,7 @@
 
 **Agentic code intelligence for JavaScript codebases far larger than any LLM context window.**
 
-> Samsung PRISM GenAI Hackathon 2026 · **Theme 01 – Agentic Code Intelligence** · Team **SRM_SpaceX** (SRM Institute of Science and Technology)
+> Samsung PRISM GenAI Hackathon 2026 · **Theme 01 – Agentic Code Intelligence** · Team **SRM_SpaceX** (SRM Institute of Science and Technology): Adarsh Gupta, Aryan Sandilya, Ujjwal Pratap Singh
 
 Ask a plain-English question → get the exact code snippets with **file and line numbers**, verified against the source.
 CodeCartographer answers four kinds of questions:
