@@ -201,6 +201,7 @@ Final judged commit is tagged **`PRISM_GENAI_HACKATHON_Y2026`**.
 - Presentation: [`docs/SRM_SpaceX_Submission_ppt.pptx`](docs/SRM_SpaceX_Submission_ppt.pptx)
 - Demo script: [`docs/DEMO_SCRIPT.md`](docs/DEMO_SCRIPT.md)
 - Evaluation report: [`eval/RESULTS.md`](eval/RESULTS.md)
+- AI disclosure: [`AI_DISCLOSURE.md`](AI_DISCLOSURE.md)
 
 **Demo video:** _add YouTube / Drive link here_
 
