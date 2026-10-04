@@ -196,7 +196,11 @@ docs/                 architecture, demo script, presentation
 
 ## 🏷️ Submission
 
-Final judged commit is tagged **`PRISM_GENAI_HACKATHON_Y2026`**. The presentation is in [`docs/`](docs) and the demo video link is below.
+Final judged commit is tagged **`PRISM_GENAI_HACKATHON_Y2026`**.
+
+- Presentation: [`docs/CollegeName_TeamName_Submission_ppt.pptx`](docs/CollegeName_TeamName_Submission_ppt.pptx)
+- Demo script: [`docs/DEMO_SCRIPT.md`](docs/DEMO_SCRIPT.md)
+- Evaluation report: [`eval/RESULTS.md`](eval/RESULTS.md)
 
 **Demo video:** _add YouTube / Drive link here_
 
