@@ -17,7 +17,7 @@
 ## M1 · Intro, problem, architecture (0:00 – 1:30)
 
 **[Slide 1: title] 0:00 – 0:20**
-> "Hi, we're team **<TeamName>** from **<College>**: I'm **<M1>**, with **<M2>** and **<M3>**. This is **CodeCartographer**, our solution for Theme 1, Agentic Code Intelligence."
+> "Hi, we're team **SpaceX** from **SRM**: I'm **<M1>**, with **<M2>** and **<M3>**. This is **CodeCartographer**, our solution for Theme 1, Agentic Code Intelligence."
 
 **[Slide 2: problem] 0:20 – 0:50**
 > "Voice-assistant codebases have dozens of agents and tools spread across thousands of files. A new developer can't hold all of that in their head, and neither can an LLM. Even at 860 files, our test repo is about 237 thousand tokens, far beyond any context window. Keyword search can't answer structural questions like 'which files call tool A before tool B', and plain LLMs guess file paths and line numbers. Finding *where* something happens is the slow part of every fix."

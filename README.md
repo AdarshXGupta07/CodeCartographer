@@ -2,7 +2,7 @@
 
 **Agentic code intelligence for JavaScript codebases far larger than any LLM context window.**
 
-> Samsung PRISM GenAI Hackathon 2026 · **Theme 01 – Agentic Code Intelligence**
+> Samsung PRISM GenAI Hackathon 2026 · **Theme 01 – Agentic Code Intelligence** · Team **SRM_SpaceX** (SRM Institute of Science and Technology)
 
 Ask a plain-English question → get the exact code snippets with **file and line numbers**, verified against the source.
 CodeCartographer answers four kinds of questions:
@@ -198,7 +198,7 @@ docs/                 architecture, demo script, presentation
 
 Final judged commit is tagged **`PRISM_GENAI_HACKATHON_Y2026`**.
 
-- Presentation: [`docs/CollegeName_TeamName_Submission_ppt.pptx`](docs/CollegeName_TeamName_Submission_ppt.pptx)
+- Presentation: [`docs/SRM_SpaceX_Submission_ppt.pptx`](docs/SRM_SpaceX_Submission_ppt.pptx)
 - Demo script: [`docs/DEMO_SCRIPT.md`](docs/DEMO_SCRIPT.md)
 - Evaluation report: [`eval/RESULTS.md`](eval/RESULTS.md)
 
